@@ -13,7 +13,7 @@ class CategoryService:
         categories = self.repository.get_all()
         return [CategoryResponse.model_validate(category) for category in categories]
 
-    def category_by_id(self, category_id: int) -> CategoryResponse:
+    def get_category_by_id(self, category_id: int) -> CategoryResponse:
         category = self.repository.get_by_id(category_id)
         if not category:
             raise HTTPException(
