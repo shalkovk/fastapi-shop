@@ -1,7 +1,7 @@
 from pydantic import BaseModel, Field
 from datetime import datetime
 from typing import Optional
-from .category import CategoryResponse
+from schemas.category import CategoryResponse
 
 
 class ProductBase(BaseModel):

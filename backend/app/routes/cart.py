@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends, status
 from sqlalchemy.orm import Session
 from typing import Dict
-from ..database import get_db
-from ..services.cart_service import CartService
-from ..schemas.cart import CartItem, CartItemCreate, CartItemUpdate, CartReponse
+from database import get_db
+from services.cart_service import CartService
+from schemas.cart import CartItem, CartItemCreate, CartItemUpdate, CartReponse
 from pydantic import BaseModel
 
 router = APIRouter(
@@ -25,7 +25,7 @@ class UpdateCartRequest(BaseModel):
 
 
 class RemoveFromCartRequest(BaseModel):
-    cart = Dict[int, int] = {}
+    cart: Dict[int, int] = {}
 
 
 @router.post("/add", status_code=status.HTTP_200_OK)
