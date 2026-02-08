@@ -39,3 +39,8 @@ def root():
         "message": "Welcome to shop API",
         "docs": "api/docs"
     }
+
+
+@app.get("/health")
+def health_check():
+    return {"status": "healthy"}
