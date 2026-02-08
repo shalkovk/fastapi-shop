@@ -4,6 +4,7 @@ from fastapi.staticfiles import StaticFiles
 from config import settings
 from database import init_db
 from routes import products_router, categories_router, cart_router
+from sqlalchemy_utils import database_exists, create_database
 
 
 app = FastAPI(
@@ -30,6 +31,9 @@ app.include_router(cart_router)
 
 @app.on_event("startup")
 def on_startup():
+    db_url = settings.database_url
+    if not database_exists(db_url):
+        create_database(db_url)
     init_db()
 
 
