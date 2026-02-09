@@ -12,7 +12,7 @@ router = APIRouter(
 )
 
 
-@router.get("", response_model=List[ProductResponse], status_code=status.HTTP_200_OK)
+@router.get("", response_model=ProductListResponse, status_code=status.HTTP_200_OK)
 def get_products(db: Session = Depends(get_db)):
     service = ProductService(db)
     return service.get_all_products()
