@@ -15,7 +15,7 @@ class Product(Base):
     image_url = Column(String)
     created_at = Column(DateTime, default=datetime.utcnow)
 
-    category = relationship("Category", back_populates="products")
+    category = relationship("Category", back_populates="product")
 
     def __repr__(self):
         return f"<Product({self.id}, name ='{self.name}', price = '{self.price}')>"
