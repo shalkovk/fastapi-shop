@@ -11,7 +11,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY backend/ .
 
-# Создаем директорию static в правильном месте
 RUN mkdir -p static/images
 
 RUN chmod -R 755 static
